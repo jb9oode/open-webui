@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Configuration
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${0}")" && pwd)"
 BACKUP_BASE_DIR="$HOME/owui-bkup"
 SOURCE_DATA_DIR="$SCRIPT_DIR/data"
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
@@ -58,7 +58,7 @@ start_dev_server() {
     else
         echo "Warning: Development server may not have started correctly."
         # Try to start with explicit shell
-        nohup /bin/bash ./dev.sh > /dev/null 2>&1 &
+        nohup /bin/zsh ./dev.sh > /dev/null 2>&1 &
         sleep 5
         if is_process_running 8080; then
             echo "Development server started successfully with explicit shell."
